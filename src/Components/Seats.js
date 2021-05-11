@@ -1,3 +1,5 @@
 export default function Seats() {
-    return 'Seats working';
+    return (
+        <div className='title'>Selecione o(s) assento(s)</div>
+    );
 }

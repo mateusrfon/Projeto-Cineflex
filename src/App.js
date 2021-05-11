@@ -3,6 +3,9 @@ import Schedule from './Components/Schedule';
 import Seats from './Components/Seats';
 import Success from './Components/Success';
 
+import './styles/reset.css';
+import './styles/style.css';
+
 import React from 'react';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 
@@ -13,7 +16,7 @@ export default function App() {
     return (
         <>
         <BrowserRouter>
-            On busines baby
+            <div className='top-bar'>CINEFLEX</div> 
             <Switch>
                 <Route path="/" exact> 
                     <Movies />

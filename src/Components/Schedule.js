@@ -1,3 +1,5 @@
 export default function Schedule() {
-    return 'Schedule working';
+    return (
+        <div className='title'>Selecione o horário</div>
+    );
 }

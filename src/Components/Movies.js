@@ -1,3 +1,5 @@
 export default function Movies() {
-    return 'Movies working';
+    return (
+        <div className='title'>Selecione o filme</div>
+    );
 }

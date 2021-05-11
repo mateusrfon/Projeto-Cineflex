@@ -1,3 +1,5 @@
 export default function Success() {
-    return 'Success working';
+    return (
+        <div className='title success'>Pedido feito<br/>com sucesso!</div>
+    );
 }
