@@ -1,0 +1,26 @@
+.title.success {
+    font-family: 'Roboto';
+    text-align: center;
+    font-weight: 700;
+    color: #247A6B;
+}
+
+.success-info {
+    font-family: 'Roboto';
+    margin-left: 30px;
+    letter-spacing: 4%;
+    margin-bottom: 80px;
+}
+
+.success-info h1 {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 28px;
+}
+
+.success-info p {
+    margin-top: 5px;
+    margin-bottom: 25px;
+    font-size: 22px;
+    line-height: 26px;
+}

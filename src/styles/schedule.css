@@ -1,0 +1,20 @@
+.options-box {
+    margin-left: 25px;
+    font-family: 'Roboto';
+    margin-bottom: 150px;
+}
+
+.options-box p {
+    margin-bottom: 22px;
+}
+
+.options-box .options {
+    display: flex;
+    margin-bottom: 23px;
+}
+
+.btn.small {
+    width: 83px;
+    height: 43px;
+    margin: 0 8px 0 0;
+}
