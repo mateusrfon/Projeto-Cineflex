@@ -55,4 +55,35 @@
     height: 117px;
     background-color: #DFE6ED;
     padding: 14px 10px;
+    display: flex;
+    align-items: center;
+}
+
+.selected .frame {
+    width: 64px;
+    height: 89px;
+    border-radius: 2px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.selected img {
+    width: 48px;
+    height: 72px;
+}
+
+.selected .info {
+    display: flex;
+    flex-direction: column;
+}
+
+.selected p {
+    margin-left: 14px;
+    font-family: 'Roboto';
+    font-size: 26px;
+    line-height: 30px;
+    color: #293845;
 }

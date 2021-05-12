@@ -7,24 +7,24 @@ import './styles/reset.css';
 import './styles/style.css';
 
 import React from 'react';
-import {BrowserRouter, Switch, Route} from 'react-router-dom';
-
-const movie = {id: 37};
-const session = {id: 240};
+import {BrowserRouter, Switch, Route, Link} from 'react-router-dom';
+import { useState } from 'react';
 
 export default function App() {
     return (
         <>
         <BrowserRouter>
-            <div className='top-bar'>CINEFLEX</div> 
+            <Link to='/' exact style={{textDecoration: 'none'}}>
+                <div className='top-bar'>CINEFLEX</div> 
+            </Link>
             <Switch>
                 <Route path="/" exact> 
                     <Movies />
                 </Route>
-                <Route path={`/filme/${movie.id}`}>
+                <Route path='/filme/:movieId'>
                     <Schedule />
                 </Route>
-                <Route path={`/sessao/${session.id}`}>
+                <Route path='/sessao/:sessionId'>
                     <Seats />
                 </Route>
                 <Route path="/sucesso">
