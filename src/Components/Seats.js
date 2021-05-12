@@ -2,6 +2,8 @@ import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
+import '../styles/seats.css';
+
 export default function Seats() {
     const { sessionId } = useParams();
     const [session, setSession] = useState('');
@@ -20,6 +22,27 @@ export default function Seats() {
     return (
         <>
             <div className='title'>Selecione o(s) assento(s)</div>
+
+            <div className='seats'>
+                {session.seats.map((e,i) => {
+                    return <div>{e.name < 10 ? '0' + e.name : e.name}</div>;
+                })}
+            </div>
+            
+            <div className='description'>
+                <div>
+                    <div className='selecionado'></div>
+                    Selecionado
+                </div>
+                <div>
+                    <div className='disponivel'></div>
+                    Disponível
+                </div>
+                <div>
+                    <div className='indisponivel'></div>
+                    Indisponível
+                </div>
+            </div>
 
             <div className='btn'>Voltar pra Home</div>
 
