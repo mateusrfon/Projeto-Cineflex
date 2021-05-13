@@ -1,6 +1,6 @@
 import Movies from './Components/Movies';
 import Schedule from './Components/Schedule';
-import Seats from './Components/Seats';
+import Session from './Components/Session';
 import Success from './Components/Success';
 
 import './styles/reset.css';
@@ -25,7 +25,7 @@ export default function App() {
                     <Schedule />
                 </Route>
                 <Route path='/sessao/:sessionId'>
-                    <Seats />
+                    <Session />
                 </Route>
                 <Route path="/sucesso">
                     <Success />
