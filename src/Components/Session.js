@@ -1,16 +1,15 @@
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Seats from './Seats';
 
 import '../styles/seats.css';
 
-export default function Session() {
+export default function Session({ success, setSuccess }) {
     const { sessionId } = useParams();
     const [session, setSession] = useState('');
-    const [name, setName] = useState('');
-    const [cpf, setCpf] = useState('');
     const [checkout, setCheckout] = useState( {ids: [], name: '', cpf: ''} );
+    let history = useHistory();
 
     useEffect(() => {
         const requirement = axios.get(`https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/showtimes/${sessionId}/seats`);
@@ -21,6 +20,22 @@ export default function Session() {
 
     if (session === '') {
         return <div className='title'>Carregando...</div>
+    }
+
+    function reserve() {
+        success.movie = session.movie.title;
+        success.date = session.day.date;
+        success.time = session.name;
+        success.tickets = checkout.ids.map((e) => {
+            const seat = session.seats.filter((t) => t.id === e);
+            return seat[0].name;
+        });
+        success.buyer = checkout.name;
+        success.cpf = checkout.cpf;
+        setSuccess({...success});
+
+        const promise = axios.post('https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/seats/book-many', checkout);
+        promise.then(() => history.push("/sucesso"));
     }
 
     return (
@@ -50,7 +65,7 @@ export default function Session() {
                 <input placeholder='Digite seu CPF...' onChange={e => setCheckout({...checkout, cpf: e.target.value})} value={checkout.cpf}/>
             </div>
 
-            <div className='btn'>Reservar assento(s)</div>
+            <div className='btn' onClick={reserve}>Reservar assento(s)</div>
 
             <div className='selected'>
                 <div className='frame'>
@@ -58,7 +73,7 @@ export default function Session() {
                 </div>
                 <div className='info'>
                     <p>{session.movie.title}</p>
-                    <p>{session.day.weekday} - {session.day.date}</p>
+                    <p>{session.day.weekday} - {session.name}</p>
                 </div>
             </div>
         </>

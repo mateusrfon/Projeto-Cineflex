@@ -11,6 +11,7 @@ import {BrowserRouter, Switch, Route, Link} from 'react-router-dom';
 import { useState } from 'react';
 
 export default function App() {
+    const [success, setSuccess] = useState({movie: '', date: '', time: '', tickets: [], buyer: '', cpf: ''});
     return (
         <>
         <BrowserRouter>
@@ -25,10 +26,10 @@ export default function App() {
                     <Schedule />
                 </Route>
                 <Route path='/sessao/:sessionId'>
-                    <Session />
+                    <Session success={success} setSuccess={setSuccess}/>
                 </Route>
                 <Route path="/sucesso">
-                    <Success />
+                    <Success success={success}/>
                 </Route>
             </Switch>
         </BrowserRouter>
