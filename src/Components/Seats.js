@@ -15,8 +15,6 @@ export default function Seats({ number, id, checkout, setCheckout, available }) 
             } else {
                 checkout.ids.push(id);
             }
-            console.log(id);
-            console.log(checkout);
             setCheckout({...checkout});
         };
     } else {

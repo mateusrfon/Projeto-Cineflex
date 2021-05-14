@@ -45,9 +45,9 @@ export default function Session() {
 
             <div className='buyer'>
                 <div className='input-title'>Nome do comprador(a):</div>
-                <input placeholder='Digite seu nome...' onChange={e => setName(e.target.value)} value={name}/>
+                <input placeholder='Digite seu nome...' onChange={e => setCheckout({...checkout, name: e.target.value})} value={checkout.name}/>
                 <div className='input-title'>CPF do comprador(a):</div>
-                <input placeholder='Digite seu CPF...' onChange={e => setCpf(e.target.value)} value={cpf}/>
+                <input placeholder='Digite seu CPF...' onChange={e => setCheckout({...checkout, cpf: e.target.value})} value={checkout.cpf}/>
             </div>
 
             <div className='btn'>Reservar assento(s)</div>
