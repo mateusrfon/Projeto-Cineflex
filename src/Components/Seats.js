@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export default function Seats({ number, id, seats, setSeats, available }) {
+export default function Seats({ number, id, checkout, setCheckout, available }) {
     
     const [selected, setSelected] = useState(false);
     let seat = '';
@@ -10,7 +10,14 @@ export default function Seats({ number, id, seats, setSeats, available }) {
         seat = selected ? 'selected-seat' : 'available-seat';
         clicked = () => {
             setSelected(!selected);
-            setSeats([...seats, id]);
+            if (checkout.ids.includes(id)) {
+                checkout.ids = checkout.ids.filter((e) => e != id );
+            } else {
+                checkout.ids.push(id);
+            }
+            console.log(id);
+            console.log(checkout);
+            setCheckout({...checkout});
         };
     } else {
         seat = 'unavailable-seat';

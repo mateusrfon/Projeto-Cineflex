@@ -10,7 +10,7 @@ export default function Session() {
     const [session, setSession] = useState('');
     const [name, setName] = useState('');
     const [cpf, setCpf] = useState('');
-    const [seats, setSeats] = useState('');
+    const [checkout, setCheckout] = useState( {ids: [], name: '', cpf: ''} );
 
     useEffect(() => {
         const requirement = axios.get(`https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/showtimes/${sessionId}/seats`);
@@ -31,7 +31,7 @@ export default function Session() {
                 {session.seats.map((e,i) => {
                     return (
                         <Seats key={i} available={e.isAvailable} number={e.name} id={e.id} 
-                        seats={seats} setSeats={setSeats}/>
+                        checkout={checkout} setCheckout={setCheckout}/>
                     );
                 })}
             </div>
